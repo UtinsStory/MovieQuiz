@@ -19,7 +19,7 @@ final class MovieQuizViewController: UIViewController {
         
         showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
     }
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private var imageView: UIImageView!
     
     struct QuizQuestion {
         let image: String
@@ -107,6 +107,9 @@ final class MovieQuizViewController: UIViewController {
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrect ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor
         
+        noButton.isEnabled = false
+        yesButton.isEnabled = false
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.showNextQuestionOrResults()
         }
@@ -122,6 +125,9 @@ final class MovieQuizViewController: UIViewController {
             show(quiz: viewModel)
         } else {
             currentQuestionIndex += 1
+            
+            noButton.isEnabled = true
+            yesButton.isEnabled = true
             
             let nextQuestion = questions[currentQuestionIndex]
             let viewModel = convert(model: nextQuestion)
@@ -171,6 +177,12 @@ final class MovieQuizViewController: UIViewController {
         noButton.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
         
         yesButton.titleLabel?.font = UIFont(name: "YSDisplay-Medium", size: 20)
+        
+        noButton.layer.cornerRadius = 15
+        
+        yesButton.layer.cornerRadius = 15
+        
+        imageView.layer.cornerRadius = 20
         
         let currentQuestion = questions[currentQuestionIndex]
         let activeQuestion = convert(model: currentQuestion)
