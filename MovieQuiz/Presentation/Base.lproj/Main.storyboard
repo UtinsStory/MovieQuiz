@@ -102,17 +102,23 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="yJO-P9-orq">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zpc-7f-UMB" secondAttribute="bottom" id="2ah-cC-evl"/>
+                            <constraint firstItem="yJO-P9-orq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9d0-hj-S8X"/>
                             <constraint firstItem="zpc-7f-UMB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QyN-9g-NFp"/>
+                            <constraint firstItem="yJO-P9-orq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="egU-T5-Ar0"/>
                             <constraint firstItem="zpc-7f-UMB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="mQi-7t-2ld"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zpc-7f-UMB" secondAttribute="trailing" constant="20" id="mhj-bI-zqj"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="yJO-P9-orq" id="5xP-oK-Agy"/>
                         <outlet property="imageView" destination="MZ3-Zn-b9K" id="c4E-jb-ZFx"/>
                         <outlet property="indexLabel" destination="Vcu-QI-0jg" id="jVm-MU-jXg"/>
                         <outlet property="noButton" destination="KZF-lh-4EI" id="hk1-01-4Fo"/>
